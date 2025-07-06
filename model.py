@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from typing import Dict
+from typing import Any, Dict
 import numpy as np
 import torch.nn.functional as F
 
@@ -12,7 +12,7 @@ GPT_CONFIG_124M = {
     "num_heads" : 12,
     "num_layers": 12,
     "drop_rate" : 0.1,
-    "qkv_bias" : False
+    "qkv_bias" : False,
 }
 class GPTModel(nn.Module):
     """
@@ -88,7 +88,7 @@ class TransformerBlock(nn.Module):
     Transformer Block which contains Transformer layer (Multi-Head Attention),
     Feed forward layer, and Layer Norm.
     """
-    def __init__(self, config: Dict[str, int]) -> None:
+    def __init__(self, config: Dict[str, Any]) -> None:
         """
         Constructor to define the model architecture
         
